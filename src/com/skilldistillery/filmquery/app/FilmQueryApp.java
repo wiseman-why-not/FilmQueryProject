@@ -13,8 +13,8 @@ public class FilmQueryApp {
 
   public static void main(String[] args) throws SQLException {
     FilmQueryApp app = new FilmQueryApp();
-    app.test();
-//    app.launch();
+//    app.test();
+    app.launch();
   }
 
   private void test() throws SQLException {
@@ -31,6 +31,34 @@ public class FilmQueryApp {
   }
 
   private void startUserInterface(Scanner input) {
+	int userChoice;  
+    boolean keepGoing = true;
+    do {
+        System.out.println("Please select from one of the following: ");
+        System.out.println("1: Look up a film by its id. ");
+        System.out.println("2: Look up a film by a search keyword. ");
+        System.out.println("0: Exit the application ");
+        System.out.print("Option: ");
+        userChoice = input.nextInt();
+        
+    	switch(userChoice) {
+    	case 1:
+    		System.out.println("you selected 1 \n");
+    		break;
+    	case 2:
+    		System.out.println("you selected 2 \n");
+    		break;
+    	case 0: 
+    		System.out.println("exiting \n");
+    		keepGoing = false;
+    		break;
+    	default:
+    		System.out.println("Please type in 1, 2 or 0 !!!! \n");
+    		break;
+    		
+    	}
+    	
+    } while (keepGoing);
     
   }
 

@@ -85,8 +85,6 @@ public class Film {
 		builder.append(description);
 		builder.append(", rating=");
 		builder.append(rating);
-		builder.append(", specialFeatures=");
-		builder.append(specialFeatures);
 		builder.append(", actors=");
 		builder.append(actors);
 		builder.append("]");
