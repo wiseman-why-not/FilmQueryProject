@@ -49,6 +49,9 @@ public class FilmQueryApp {
     		int filmIdChoice = Integer.parseInt(userChoice);
     		try {
     			searchedFilm = db.findFilmById(filmIdChoice);
+    			if(searchedFilm == null) {
+    				System.out.println("film id not found");
+    			}
     			System.out.println(searchedFilm);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
