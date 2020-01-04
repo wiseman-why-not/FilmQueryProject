@@ -1,12 +1,14 @@
 package com.skilldistillery.filmquery.entities;
 
+import java.util.List;
+
 public class Actor {
 
 	// fields
 	private int id;
 	private String firstName;
 	private String lastName;
-
+	private List<Film> films;
 	// constructors
 	public Actor() {
 		super();
@@ -18,6 +20,14 @@ public class Actor {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
+	}
+
+	public Actor(int id, String firstName, String lastName, List<Film> films) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.films = films;
 	}
 
 	// methods
@@ -90,6 +100,14 @@ public class Actor {
 		builder.append(lastName);
 		builder.append("]");
 		return builder.toString();
+	}
+
+	public List<Film> getFilms() {
+		return films;
+	}
+
+	public void setFilms(List<Film> films) {
+		this.films = films;
 	}
 
 }

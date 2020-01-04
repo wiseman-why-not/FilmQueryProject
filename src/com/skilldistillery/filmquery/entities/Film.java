@@ -1,101 +1,119 @@
 package com.skilldistillery.filmquery.entities;
 
+import java.util.List;
+
 public class Film {
 	// fields
 	private int id;
-	private String firstName;
-	private String lastName;
-	private int addressID;
-	private String email;
-	private int storeID;
-	private int supervisorID;
-	private boolean active;
-	private String username;
-	private String password;
+	private String title;
+	private String description;
+	private String rating;
+	private String specialFeatures;
+	private List<Actor> actors;
+
 	
+	public Film(int id, String title, String description, String rating, String specialFeatures, List<Actor> actors) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.rating = rating;
+		this.specialFeatures = specialFeatures;
+		this.actors = actors;
+	}
+
 	// constructors
 	public Film() {
 		super();
 		
 	}
 	
-	// methods
+	public Film(int filmId, String title, String desc, short releaseYear, int langId, int rentDur, double rate,
+			int length, double repCost, String rating, String features) {
+		// TODO Auto-generated constructor stub
+		//
+	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFirstName() {
-		return firstName;
+
+	public String getTitle() {
+		return title;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getLastName() {
-		return lastName;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public int getAddressID() {
-		return addressID;
+
+	public String getRating() {
+		return rating;
 	}
-	public void setAddressID(int addressID) {
-		this.addressID = addressID;
+
+	public void setRating(String rating) {
+		this.rating = rating;
 	}
-	public String getEmail() {
-		return email;
+
+	public String getSpecialFeatures() {
+		return specialFeatures;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setSpecialFeatures(String specialFeatures) {
+		this.specialFeatures = specialFeatures;
 	}
-	public int getStoreID() {
-		return storeID;
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Film [id=");
+		builder.append(id);
+		builder.append(", title=");
+		builder.append(title);
+		builder.append(", description=");
+		builder.append(description);
+		builder.append(", rating=");
+		builder.append(rating);
+		builder.append(", specialFeatures=");
+		builder.append(specialFeatures);
+		builder.append(", actors=");
+		builder.append(actors);
+		builder.append("]");
+		return builder.toString();
 	}
-	public void setStoreID(int storeID) {
-		this.storeID = storeID;
+
+	public Film(int id, String title, String description, String rating, String specialFeatures) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.rating = rating;
+		this.specialFeatures = specialFeatures;
 	}
-	public int getSupervisorID() {
-		return supervisorID;
-	}
-	public void setSupervisorID(int supervisorID) {
-		this.supervisorID = supervisorID;
-	}
-	public boolean isActive() {
-		return active;
-	}
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (active ? 1231 : 1237);
-		result = prime * result + addressID;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + storeID;
-		result = prime * result + supervisorID;
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
+		result = prime * result + ((specialFeatures == null) ? 0 : specialFeatures.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -105,67 +123,46 @@ public class Film {
 		if (getClass() != obj.getClass())
 			return false;
 		Film other = (Film) obj;
-		if (active != other.active)
-			return false;
-		if (addressID != other.addressID)
-			return false;
-		if (email == null) {
-			if (other.email != null)
+		if (description == null) {
+			if (other.description != null)
 				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (firstName == null) {
-			if (other.firstName != null)
-				return false;
-		} else if (!firstName.equals(other.firstName))
+		} else if (!description.equals(other.description))
 			return false;
 		if (id != other.id)
 			return false;
-		if (lastName == null) {
-			if (other.lastName != null)
+		if (rating == null) {
+			if (other.rating != null)
 				return false;
-		} else if (!lastName.equals(other.lastName))
+		} else if (!rating.equals(other.rating))
 			return false;
-		if (password == null) {
-			if (other.password != null)
+		if (specialFeatures == null) {
+			if (other.specialFeatures != null)
 				return false;
-		} else if (!password.equals(other.password))
+		} else if (!specialFeatures.equals(other.specialFeatures))
 			return false;
-		if (storeID != other.storeID)
-			return false;
-		if (supervisorID != other.supervisorID)
-			return false;
-		if (username == null) {
-			if (other.username != null)
+		if (title == null) {
+			if (other.title != null)
 				return false;
-		} else if (!username.equals(other.username))
+		} else if (!title.equals(other.title))
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Film [id=");
-		builder.append(id);
-		builder.append(", firstName=");
-		builder.append(firstName);
-		builder.append(", lastName=");
-		builder.append(lastName);
-		builder.append(", addressID=");
-		builder.append(addressID);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", storeID=");
-		builder.append(storeID);
-		builder.append(", supervisorID=");
-		builder.append(supervisorID);
-		builder.append(", active=");
-		builder.append(active);
-		builder.append(", username=");
-		builder.append(username);
-		builder.append(", password=");
-		builder.append(password);
-		builder.append("]");
-		return builder.toString();
+
+	public Film(int id, String title, String description) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
 	}
+
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+
+	// methods
+	
 }
