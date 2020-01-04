@@ -70,8 +70,12 @@ public class FilmQueryApp {
     			listOfFilmFound = db.findFilmsByKeyword(userChoice);
     			if(listOfFilmFound.isEmpty()) {
     				System.out.println("No film(s) found with that keyword");
+    			}else {
+    				for (Film film : listOfFilmFound) {
+						System.out.println(film);
+					}
     			}
-    			System.out.println(listOfFilmFound);
+    			
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

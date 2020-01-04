@@ -16,16 +16,11 @@ public class Film {
 	private String rating;
 	private String specialFeatures;
 	private List<Actor> actors;
-	
+	private String language;
 	// constructor
 	public Film() {
 		super();
 	}
-	
-
-
-
-
 	
 
 	public Film(int id, String title, String description, short releaseYear, int langId, int rentDur, double rate,
@@ -104,18 +99,20 @@ public class Film {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Film id= ");
+		builder.append("Film [id=");
 		builder.append(id);
-		builder.append(". \ntitle= ");
+		builder.append(", title=");
 		builder.append(title);
-		builder.append(". \nRelease year= ");
+		builder.append(", releaseYear=");
 		builder.append(releaseYear);
-		builder.append(". \ndescription= ");
+		builder.append(", description=");
 		builder.append(description);
-		builder.append(". \nrating= ");
+		builder.append(", rating=");
 		builder.append(rating);
-		builder.append(". \nList of actors: ");
+		builder.append(", actors=");
 		builder.append(actors);
+		builder.append(", language=");
+		builder.append(language);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -124,9 +121,20 @@ public class Film {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((actors == null) ? 0 : actors.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
+		result = prime * result + langId;
+		result = prime * result + ((language == null) ? 0 : language.hashCode());
+		result = prime * result + length;
+		long temp;
+		temp = Double.doubleToLongBits(rate);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
+		result = prime * result + releaseYear;
+		result = prime * result + rentDur;
+		temp = Double.doubleToLongBits(repCost);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((specialFeatures == null) ? 0 : specialFeatures.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
@@ -141,6 +149,11 @@ public class Film {
 		if (getClass() != obj.getClass())
 			return false;
 		Film other = (Film) obj;
+		if (actors == null) {
+			if (other.actors != null)
+				return false;
+		} else if (!actors.equals(other.actors))
+			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -148,10 +161,27 @@ public class Film {
 			return false;
 		if (id != other.id)
 			return false;
+		if (langId != other.langId)
+			return false;
+		if (language == null) {
+			if (other.language != null)
+				return false;
+		} else if (!language.equals(other.language))
+			return false;
+		if (length != other.length)
+			return false;
+		if (Double.doubleToLongBits(rate) != Double.doubleToLongBits(other.rate))
+			return false;
 		if (rating == null) {
 			if (other.rating != null)
 				return false;
 		} else if (!rating.equals(other.rating))
+			return false;
+		if (releaseYear != other.releaseYear)
+			return false;
+		if (rentDur != other.rentDur)
+			return false;
+		if (Double.doubleToLongBits(repCost) != Double.doubleToLongBits(other.repCost))
 			return false;
 		if (specialFeatures == null) {
 			if (other.specialFeatures != null)
@@ -223,6 +253,26 @@ public class Film {
 
 	public void setYear(short year) {
 		this.releaseYear = year;
+	}
+
+
+	public short getReleaseYear() {
+		return releaseYear;
+	}
+
+
+	public void setReleaseYear(short releaseYear) {
+		this.releaseYear = releaseYear;
+	}
+
+
+	public String getLanguage() {
+		return language;
+	}
+
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 	// methods
