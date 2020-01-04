@@ -31,7 +31,7 @@ public class FilmQueryApp {
   }
 
   private void startUserInterface(Scanner input) {
-	int userChoice;  
+	String userChoice;  
     boolean keepGoing = true;
     do {
         System.out.println("Please select from one of the following: ");
@@ -39,16 +39,26 @@ public class FilmQueryApp {
         System.out.println("2: Look up a film by a search keyword. ");
         System.out.println("0: Exit the application ");
         System.out.print("Option: ");
-        userChoice = input.nextInt();
+        userChoice = input.next().toLowerCase();
         
     	switch(userChoice) {
-    	case 1:
-    		System.out.println("you selected 1 \n");
+    	case "1":
+    		Film searchedFilm = null;
+    		System.out.print("Please enter Film ID: ");
+    		userChoice = input.next().toLowerCase();
+    		int filmIdChoice = Integer.parseInt(userChoice);
+    		try {
+    			searchedFilm = db.findFilmById(filmIdChoice);
+    			System.out.println(searchedFilm);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     		break;
-    	case 2:
+    	case "2":
     		System.out.println("you selected 2 \n");
     		break;
-    	case 0: 
+    	case "0": 
     		System.out.println("exiting \n");
     		keepGoing = false;
     		break;

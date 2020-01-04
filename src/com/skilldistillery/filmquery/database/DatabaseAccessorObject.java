@@ -38,7 +38,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, filmId);
-		System.out.println(stmt);
 		ResultSet rs = stmt.executeQuery();
 
 		while (rs.next()) {
@@ -119,7 +118,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	public Film findFilmById(int filmId) throws SQLException {
 		Film film = null;
 		// ...
-		String sql = "SELECT id, title, description, rating FROM film WHERE id = ?";
+		String sql = "SELECT id, title, description, rating, release_year FROM film WHERE id = ?";
 		Connection conn = DriverManager.getConnection(url, user, pass);
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, filmId);
@@ -130,7 +129,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			film.setId(rs.getInt(1));
 			film.setTitle(rs.getString(2));
 			film.setDescription(rs.getString(3));
-			film.setRating(rs.getString(4)); // An Actor has Films
+			film.setRating(rs.getString(4)); 
+			film.setYear(rs.getString(5)); 
 			film.setActors(findActorsByFilmId(filmId)); // An Actor has Films
 		}
 		//  closing
