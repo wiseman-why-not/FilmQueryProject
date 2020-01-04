@@ -1,6 +1,8 @@
 package com.skilldistillery.filmquery.app;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.skilldistillery.filmquery.database.DatabaseAccessor;
@@ -31,7 +33,9 @@ public class FilmQueryApp {
   }
 
   private void startUserInterface(Scanner input) {
-	String userChoice;  
+	String userChoice; 
+	Film searchedFilm = null;
+	int filmIdChoice;
     boolean keepGoing = true;
     do {
         System.out.println("Please select from one of the following: ");
@@ -43,10 +47,10 @@ public class FilmQueryApp {
         
     	switch(userChoice) {
     	case "1":
-    		Film searchedFilm = null;
+    		
     		System.out.print("Please enter Film ID: ");
     		userChoice = input.next().toLowerCase();
-    		int filmIdChoice = Integer.parseInt(userChoice);
+    		filmIdChoice = Integer.parseInt(userChoice);
     		try {
     			searchedFilm = db.findFilmById(filmIdChoice);
     			if(searchedFilm == null) {
@@ -59,7 +63,19 @@ public class FilmQueryApp {
 			}
     		break;
     	case "2":
-    		System.out.println("you selected 2 \n");
+    		List<Film>listOfFilmFound = new ArrayList<>();
+    		System.out.print("Please enter keyword to search by: ");
+    		userChoice = input.next().toLowerCase();
+    		try {
+    			listOfFilmFound = db.findFilmsByKeyword(userChoice);
+    			if(listOfFilmFound.isEmpty()) {
+    				System.out.println("No film(s) found with that keyword");
+    			}
+    			System.out.println(listOfFilmFound);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     		break;
     	case "0": 
     		System.out.println("exiting \n");

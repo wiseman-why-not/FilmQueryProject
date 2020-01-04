@@ -6,53 +6,64 @@ public class Film {
 	// fields
 	private int id;
 	private String title;
-	private String year;
-	private String rating;
+	private short releaseYear;
 	private String description;
 	private int langId;
 	private int rentDur;
 	private double rate;
 	private int length;
 	private double repCost;
+	private String rating;
 	private String specialFeatures;
 	private List<Actor> actors;
 	
-
-	
-	public Film(int id, String title, String description, String rating, String specialFeatures, List<Actor> actors) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.description = description;
-		this.rating = rating;
-		this.specialFeatures = specialFeatures;
-		this.actors = actors;
-	}
-
-	// constructors
+	// constructor
 	public Film() {
 		super();
-		
 	}
 	
-	public Film(int id, String title, String year, String rating, String description) {
+
+
+
+
+	
+
+	public Film(int id, String title, String description, short releaseYear, int langId, int rentDur, double rate,
+			int length, double repCost, String rating, String specialFeatures) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.year = year;
+		this.releaseYear = releaseYear;
+		this.description = description;
+		this.langId = langId;
+		this.rentDur = rentDur;
+		this.rate = rate;
+		this.length = length;
+		this.repCost = repCost;
 		this.rating = rating;
+		this.specialFeatures = specialFeatures;
+	}
+
+
+
+
+
+
+
+	public Film(int id, String title, short releaseYear, String description) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.releaseYear = releaseYear;
 		this.description = description;
 	}
 
-	public Film(int filmId, String title, String desc, short releaseYear, int langId, int rentDur, double rate,
-			int length, double repCost, String rating, String features) {
-		// TODO Auto-generated constructor stub
-		//
-	}
+
 
 	public int getId() {
 		return id;
 	}
+
 
 	public void setId(int id) {
 		this.id = id;
@@ -98,7 +109,7 @@ public class Film {
 		builder.append(". \ntitle= ");
 		builder.append(title);
 		builder.append(". \nRelease year= ");
-		builder.append(year);
+		builder.append(releaseYear);
 		builder.append(". \ndescription= ");
 		builder.append(description);
 		builder.append(". \nrating= ");
@@ -170,14 +181,6 @@ public class Film {
 		this.actors = actors;
 	}
 
-	public String getYear() {
-		return year;
-	}
-
-	public void setYear(String year) {
-		this.year = year;
-	}
-
 	public int getLangId() {
 		return langId;
 	}
@@ -216,6 +219,10 @@ public class Film {
 
 	public void setRepCost(double repCost) {
 		this.repCost = repCost;
+	}
+
+	public void setYear(short year) {
+		this.releaseYear = year;
 	}
 
 	// methods
