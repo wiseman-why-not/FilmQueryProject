@@ -9,6 +9,7 @@ public class Actor {
 	private String firstName;
 	private String lastName;
 	private List<Film> films;
+
 	// constructors
 	public Actor() {
 		super();
@@ -92,11 +93,9 @@ public class Actor {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Actor [id=");
-		builder.append(id);
-		builder.append(", firstName=");
+		builder.append("[");
 		builder.append(firstName);
-		builder.append(", lastName=");
+		builder.append(" ");
 		builder.append(lastName);
 		builder.append("]");
 		return builder.toString();

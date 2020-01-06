@@ -17,11 +17,11 @@ public class Film {
 	private String specialFeatures;
 	private List<Actor> actors;
 	private String language;
+
 	// constructor
 	public Film() {
 		super();
 	}
-	
 
 	public Film(int id, String title, String description, short releaseYear, int langId, int rentDur, double rate,
 			int length, double repCost, String rating, String specialFeatures) {
@@ -39,12 +39,6 @@ public class Film {
 		this.specialFeatures = specialFeatures;
 	}
 
-
-
-
-
-
-
 	public Film(int id, String title, short releaseYear, String description) {
 		super();
 		this.id = id;
@@ -53,12 +47,9 @@ public class Film {
 		this.description = description;
 	}
 
-
-
 	public int getId() {
 		return id;
 	}
-
 
 	public void setId(int id) {
 		this.id = id;
@@ -99,20 +90,22 @@ public class Film {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Film [id=");
-		builder.append(id);
-		builder.append(", title=");
+
+		builder.append("\n[Title : ");
 		builder.append(title);
-		builder.append(", releaseYear=");
+		builder.append("] [releaseYear : ");
 		builder.append(releaseYear);
-		builder.append(", description=");
-		builder.append(description);
-		builder.append(", rating=");
+		builder.append("] [rating : ");
 		builder.append(rating);
-		builder.append(", actors=");
-		builder.append(actors);
-		builder.append(", language=");
+		builder.append("] [language : ");
 		builder.append(language);
+		builder.append("] [Film id : ");
+		builder.append(id);
+		builder.append("]");
+		builder.append("\n[description : ");
+		builder.append(description);
+		builder.append("] \n[List of actor(s) : ");
+		builder.append(actors);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -255,26 +248,20 @@ public class Film {
 		this.releaseYear = year;
 	}
 
-
 	public short getReleaseYear() {
 		return releaseYear;
 	}
-
 
 	public void setReleaseYear(short releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 
-
 	public String getLanguage() {
 		return language;
 	}
-
 
 	public void setLanguage(String language) {
 		this.language = language;
 	}
 
-	// methods
-	
 }
